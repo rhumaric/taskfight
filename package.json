@@ -1,0 +1,24 @@
+{
+  "name": "react-es6-sass-webpack-base",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "start": "browser-sync start --config bs-config.js"
+  },
+  "author": "Romaric Pascal",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "browser-sync": "^2.13.0",
+    "html-webpack-plugin": "^2.21.0",
+    "npm-run-all": "^2.2.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "webpack": "^1.13.1"
+  }
+}
