@@ -6,6 +6,7 @@
     "dev:html": "pug src/index.pug --out www -O {pretty:true} -w",
     "dev:js": "webpack -d --watch",
     "dev:css": "node-sass --watch src/scss/style.scss www/style.css",
+    "dev": "run-p dev:html dev:js dev:css start",
     "build:html": "pug src/index.pug --out www",
     "build:js": "webpack -p",
     "build:css": "node-sass src/scss/style.scss www/style.css",
