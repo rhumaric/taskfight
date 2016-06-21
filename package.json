@@ -1,5 +1,5 @@
 {
-  "name": "react-es6-sass-webpack-base",
+  "name": "react-base",
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
@@ -14,7 +14,7 @@
     "start": "browser-sync start --config bs-config.js"
   },
   "author": "Romaric Pascal",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
