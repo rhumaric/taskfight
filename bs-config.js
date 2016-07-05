@@ -14,5 +14,8 @@
  */
 module.exports = {
     server: "www",
-    files: "www"
+    files: "www",
+    middleware: [
+      require('connect-history-api-fallback')()
+    ]
 };
