@@ -29,7 +29,12 @@
     "npm-run-all": "^2.2.0",
     "pug": "^2.0.0-beta3",
     "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.2.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
     "webpack": "^1.13.1"
   }
 }
