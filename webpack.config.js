@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'www');
 var APP_DIR = path.resolve(__dirname, 'src/js');
@@ -22,10 +21,7 @@ var config = {
         loader : 'babel'
       }
     ]
-  },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'Taskfight'
-  })]
+  }
 };
 
 module.exports = config;
