@@ -7,11 +7,11 @@ import Fight from './Fight';
 import Results from './Results';
 
 
-export default function routes (history=browserHistory){
+export default function routes (history=browserHistory, app=App){
   return (
     <Router history={history}>
       <Redirect from="/" to="/tasklist" />
-      <Route component={App}>
+      <Route component={app}>
         <Route path="taskList" component={TaskList}></Route>
         <Route path="fights/:fightId" component={Fight}></Route>
         <Route path="results" component={Results}></Route>
