@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class TaskList extends Component {
+export default class Results extends Component {
   render() {
     return (
-      <div>Tasklist</div>
+      <div>Result</div>
     );
   }
 }
