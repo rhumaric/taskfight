@@ -2,18 +2,47 @@ import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
 
 import TaskListItem from './TaskListItem';
+import messages from './messages';
 
+@autobind
 export default class TaskList extends Component {
 
-  @autobind
+  constructor () {
+    super();
+    this.state = {};
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addTask(this.refs.title.value);
+    try {
+      this.props.addTask(this.refs.title.value);
+
+      this.refs.form.reset();
+      this.state.taskAlreadyExists = false;
+      this.setState({
+        taskAlreadyExists:false
+      });
+    } catch (e) {
+      this.state.taskAlreadyExists = true;
+      this.setState({
+        taskAlreadyExists: true
+      });
+    }
+
+
+  }
+  maybeRenderError() {
+    if (this.state.taskAlreadyExists) {
+      return (
+        <p className="error">{messages.TASK_ALREADY_EXISTS}</p>
+      )
+    }
   }
   render() {
     return (
       <div>
-        <form ref="addTaskForm" onSubmit={this.handleSubmit}>
+        <form ref="form" onSubmit={this.handleSubmit}>
+          {this.maybeRenderError()}
           <input type="text" ref="title" name="title" placeholder="..." required/>
           <button type="submit">+</button>
         </form>
