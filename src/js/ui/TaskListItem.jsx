@@ -1,1 +1,9 @@
-// Item of the task list, allowing for edition and deletion
+import React, { Component } from 'react';
+
+export default class TaskListItem extends Component {
+  render() {
+    return (
+      <li>{this.props.task}</li>
+    );
+  }
+}

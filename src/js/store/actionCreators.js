@@ -1,3 +1,8 @@
-export function addTask(taskName) {
-
+export function addTask(title) {
+  return {
+    type: 'ADD_TASK',
+    payload: {
+      title
+    }
+  }
 }
