@@ -1,5 +1,7 @@
 import {Effects,loop} from 'redux-loop';
 import StoreError from '../StoreError';
+import findKey from 'lodash/findKey';
+import uuid from 'node-uuid';
 
 function taskAdded(title, tasks, previousTasks) {
   return {
@@ -27,13 +29,22 @@ const tasks = {
   ADD_TASK (state=[], action) {
     var title = action.payload.title;
 
-    if (state.includes(title)) {
-      throw new StoreError('TASKS_ALREADY_EXISTS');
+    if (findKey(state, {title})) {
+      throw new StoreError('TASK_ALREADY_EXISTS');
     }
 
-    var result = state.concat([title]) 
+    const task = {
+      id: uuid(),
+      title
+    };
+
+    const result = {
+      ...state,
+      [task.id]: task
+    }
+    
     return loop(result,
-      Effects.constant(taskAdded(title, result, state))
+      Effects.constant(taskAdded(task, result, state))
     );
   },
   REMOVE_TASK (state=[], action) {
