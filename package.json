@@ -11,7 +11,8 @@
     "build:js": "webpack -p",
     "build:css": "node-sass src/scss/style.scss www/style.css",
     "build": "run-p build:html build:js build:css",
-    "start": "browser-sync start --config bs-config.js"
+    "start": "browser-sync start --config bs-config.js",
+    "test": "karma start"
   },
   "author": "Romaric Pascal",
   "license": "UNLICENSED",
@@ -26,7 +27,18 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
     "browser-sync": "^2.13.0",
+    "chai": "^3.5.0",
     "connect-history-api-fallback": "^1.2.0",
+    "karma": "^1.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-sinon": "^1.0.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "npm-run-all": "^2.2.0",
     "pug": "^2.0.0-beta3",
@@ -39,6 +51,8 @@
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "redux-loop": "^2.1.1",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
   }
 }
