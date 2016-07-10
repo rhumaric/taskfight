@@ -3,6 +3,7 @@ import autobind from 'autobind-decorator';
 
 import TaskListItem from './TaskListItem';
 import messages from './messages';
+import StoreError from '../store/StoreError';
 
 @autobind
 export default class TaskList extends Component {
@@ -23,6 +24,11 @@ export default class TaskList extends Component {
         taskAlreadyExists:false
       });
     } catch (e) {
+
+      if (!(e instanceof StoreError))  {
+        throw e;
+      }
+
       this.state.taskAlreadyExists = true;
       this.setState({
         taskAlreadyExists: true

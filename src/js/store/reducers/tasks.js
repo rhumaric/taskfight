@@ -1,14 +1,31 @@
+import {Effects,loop} from 'redux-loop';
+import StoreError from '../StoreError';
+
+function taskAdded(title, tasks, previousTasks) {
+  console.log(arguments);
+  return {
+    type: 'TASK_ADDED',
+    payload: {
+      title,
+      tasks,
+      previousTasks
+    }
+  }
+}
+
 const tasks = {
   ADD_TASK (state=[], action) {
     var title = action.payload.title;
 
     if (state.includes(title)) {
-      throw new Error('TASKS_ALREADY_EXISTS');
+      throw new StoreError('TASKS_ALREADY_EXISTS');
     }
 
     var result = [...state];
     result.push(title);
-    return result;
+    return loop(result,
+      Effects.constant(taskAdded(title, result, state))
+    );
   }
 }
 
