@@ -2,7 +2,6 @@ import {Effects,loop} from 'redux-loop';
 import StoreError from '../StoreError';
 
 function taskAdded(title, tasks, previousTasks) {
-  console.log(arguments);
   return {
     type: 'TASK_ADDED',
     payload: {

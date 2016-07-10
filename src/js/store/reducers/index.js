@@ -10,11 +10,11 @@ function createReducer(reducers) {
 
     var reducer = reducers[action.type];
     return reducer ? reducer(state, action) : state;
-  }
+  };
 }
 
 const rootReducer = combineReducers({
-  fightlist,
+  fightlist: createReducer(fightlist),
   tasks: createReducer(tasks),
   routing: routerReducer
 });
