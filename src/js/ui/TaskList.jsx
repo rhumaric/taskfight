@@ -54,7 +54,7 @@ export default class TaskList extends Component {
         </form>
         <ul>
           {this.props.tasks.map((task,i) => {
-            return <TaskListItem key={i} index={i} task={task} />
+            return <TaskListItem key={i} index={i} task={task} removeTask={this.props.removeTask} />
           })}
         </ul>
       </div>
