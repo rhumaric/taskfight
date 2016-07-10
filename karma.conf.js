@@ -1,7 +1,10 @@
 // Karma configuration
-// Generated on Sun Jul 10 2016 15:13:10 GMT+0100 (BST)
+
+var path = require('path');
+
 var webpack = require('./webpack.config.js');
 webpack.entry = undefined;
+webpack.resolve.alias.app = path.resolve('./src/js');
 webpack.devtool = 'inline-source-map';
 
 

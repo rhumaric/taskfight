@@ -11,13 +11,14 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {},
   },
   module : {
     loaders : [
       {
         test : /\.jsx?/,
-        include : APP_DIR,
+        exclude: /node_modules/,
         loader : 'babel'
       }
     ]
