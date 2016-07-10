@@ -8,6 +8,16 @@ const reducers = {
       }
     });
     return state.concat(fights);
+  },
+
+  TASK_REMOVED (state=[], action) {
+    var {title} = action.payload;
+    var result = state.filter((fight) => {
+
+      return fight.task !== title && fight.otherTask !== title
+    });
+
+    return result;
   }
 };
 
