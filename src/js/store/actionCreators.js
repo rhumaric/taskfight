@@ -7,11 +7,11 @@ export function addTask(title) {
   }
 }
 
-export function removeTask(title) {
+export function removeTask(id) {
   return {
     type: 'REMOVE_TASK',
     payload: {
-      title
+      id
     }
   }
 }

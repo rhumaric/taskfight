@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
+import map from 'lodash/map';
 
 import TaskListItem from './TaskListItem';
 import messages from './messages';
@@ -53,8 +54,8 @@ export default class TaskList extends Component {
           <button type="submit">+</button>
         </form>
         <ul>
-          {this.props.tasks.map((task,i) => {
-            return <TaskListItem key={i} index={i} task={task} removeTask={this.props.removeTask} />
+          {map(this.props.tasks, (task,i) => {
+            return <TaskListItem key={i} task={task} removeTask={this.props.removeTask} />
           })}
         </ul>
       </div>

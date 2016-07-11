@@ -1,6 +1,7 @@
 import {Effects,loop} from 'redux-loop';
 import StoreError from '../StoreError';
 import findKey from 'lodash/findKey';
+import omit from 'lodash/omit';
 import uuid from 'node-uuid';
 
 function taskAdded(title, tasks, previousTasks) {
@@ -26,7 +27,7 @@ function taskRemoved(title, tasks, previousTasks) {
 }
 
 const tasks = {
-  ADD_TASK (state=[], action) {
+  ADD_TASK (state={}, action) {
     var title = action.payload.title;
 
     if (findKey(state, {title})) {
@@ -47,19 +48,16 @@ const tasks = {
       Effects.constant(taskAdded(task, result, state))
     );
   },
-  REMOVE_TASK (state=[], action) {
-    var title = action.payload.title;
-    var index = state.indexOf(title);
-      
-    if (index === -1) {
+  REMOVE_TASK (state={}, action) {
+    var id = action.payload.id;
+
+    if(!state[id]) {
       return state;
     }
-    var result = [
-      ...state.slice(0, index),
-      ...state.slice(index + 1)
-    ]
+
+    var result = omit(state, id);
     return loop(result,
-      Effects.constant(taskRemoved(title, result, state)))
+      Effects.constant(taskRemoved(id, result, state)));
   }
 }
 
