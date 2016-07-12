@@ -1,25 +1,29 @@
+import map from 'lodash/map';
+import uuid from 'node-uuid';
+
 const reducers = {
   TASK_ADDED (state=[],action) {
-    var {task, previousTasks} = action.payload;
-    var fights = previousTasks.map((otherTask) => {
+    let {task, previousTasks} = action.payload;
+    task = task.id;
+    let fights = map(previousTasks, (t, otherTask) => {
       return {
         id: uuid(),
-        task: task.id,
-        otherTask: otherTask.id
+        task,
+        otherTask
       };
     });
     return state.concat(fights);
   },
 
-  // TASK_REMOVED (state=[], action) {
-  //   var {title} = action.payload;
-  //   var result = state.filter((fight) => {
+  TASK_REMOVED (state=[], action) {
+    var {task} = action.payload;
+    var result = state.filter((fight) => {
 
-  //     return fight.task !== title && fight.otherTask !== title
-  //   });
+      return fight.task !== task && fight.otherTask !== task
+    });
 
-  //   return result;
-  // }
+    return result;
+  }
 };
 
 export default reducers;

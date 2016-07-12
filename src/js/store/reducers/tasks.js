@@ -4,22 +4,22 @@ import findKey from 'lodash/findKey';
 import omit from 'lodash/omit';
 import uuid from 'node-uuid';
 
-function taskAdded(title, tasks, previousTasks) {
+function taskAdded(task, tasks, previousTasks) {
   return {
     type: 'TASK_ADDED',
     payload: {
-      title,
+      task,
       tasks,
       previousTasks
     }
   }
 }
 
-function taskRemoved(title, tasks, previousTasks) {
+function taskRemoved(task, tasks, previousTasks) {
   return {
     type: 'TASK_REMOVED',
     payload: {
-      title,
+      task,
       tasks,
       previousTasks
     }
