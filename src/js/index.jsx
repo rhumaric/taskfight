@@ -16,5 +16,5 @@ import App from './ui/App';
 import connect from './connect';
 
 render(<Provider store={store}>
-  {routes(history, connect(App))}
+  {routes(history, connect(App), store)}
   </Provider>, document.getElementById('app'));
