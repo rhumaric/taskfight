@@ -3,9 +3,9 @@ import uuid from 'node-uuid';
 
 const reducers = {
   TASK_ADDED (state=[],action) {
-    let {task, previousTasks} = action.payload;
+    let {task, to} = action.payload;
     task = task.id;
-    let fights = map(previousTasks, (t, otherTask) => {
+    let fights = map(to, (t, otherTask) => {
       return {
         id: uuid(),
         task,

@@ -1,30 +1,11 @@
 import {Effects,loop} from 'redux-loop';
 import StoreError from '../StoreError';
+import {taskAdded, taskRemoved} from '../actionCreators';
 import findKey from 'lodash/findKey';
 import omit from 'lodash/omit';
 import uuid from 'node-uuid';
 
-function taskAdded(task, tasks, previousTasks) {
-  return {
-    type: 'TASK_ADDED',
-    payload: {
-      task,
-      tasks,
-      previousTasks
-    }
-  }
-}
 
-function taskRemoved(task, tasks, previousTasks) {
-  return {
-    type: 'TASK_REMOVED',
-    payload: {
-      task,
-      tasks,
-      previousTasks
-    }
-  }
-}
 
 const tasks = {
   ADD_TASK (state={}, action) {
@@ -45,7 +26,7 @@ const tasks = {
     }
     
     return loop(result,
-      Effects.constant(taskAdded(task, result, state))
+      Effects.constant(taskAdded(task, state))
     );
   },
   REMOVE_TASK (state={}, action) {
@@ -57,7 +38,7 @@ const tasks = {
 
     var result = omit(state, id);
     return loop(result,
-      Effects.constant(taskRemoved(id, result, state)));
+      Effects.constant(taskRemoved(id)));
   }
 }
 

@@ -17,7 +17,7 @@ import rootReducer from './reducers';
 
 const store = createStore(rootReducer, {
   tasks: {},
-  fightlist: {}
+  fightlist: []
 },
   install()
 );
