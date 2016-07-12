@@ -10,7 +10,7 @@ export default class App extends Component {
           <h1>Taskfight</h1>
         </header>
         <main>
-          <Stages>
+          <Stages {...this.props} >
           {React.cloneElement(this.props.children, this.props)}
           </Stages>
         </main>
