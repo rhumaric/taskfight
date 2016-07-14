@@ -30,7 +30,7 @@ export default class Stages extends Component {
       title: 'Results',
       next: function () {},
       previous: function () {
-        return '/fight'
+        return '/fights/next'
       }
     },
 

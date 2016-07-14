@@ -15,10 +15,9 @@ import {install} from 'redux-loop';
 
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, {
-  tasks: {},
-  fightlist: []
-},
+import demoState from './demoState.json';
+
+const store = createStore(rootReducer, demoState,
   install()
 );
 

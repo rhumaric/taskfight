@@ -1,0 +1,33 @@
+{
+   "fightlist":[
+      {
+         "id":"1f99f2e8-c8f0-47a5-8a0a-86708441abc8",
+         "task":"392ba9c7-105f-48a3-96ae-44d90d19c3b6",
+         "otherTask":"d39f73b9-213b-4c1f-8c58-560a4d5cd1da"
+      },
+      {
+         "id":"095c99d0-2920-4eef-8cd9-c7aefb047c44",
+         "task":"bdafb144-2c8c-4abf-8a92-4428fd9051d0",
+         "otherTask":"d39f73b9-213b-4c1f-8c58-560a4d5cd1da"
+      },
+      {
+         "id":"404601c5-396a-4ce9-b6c7-db419fa33428",
+         "task":"bdafb144-2c8c-4abf-8a92-4428fd9051d0",
+         "otherTask":"392ba9c7-105f-48a3-96ae-44d90d19c3b6"
+      }
+   ],
+   "tasks":{
+      "d39f73b9-213b-4c1f-8c58-560a4d5cd1da":{
+         "id":"d39f73b9-213b-4c1f-8c58-560a4d5cd1da",
+         "title":"Take a nap"
+      },
+      "392ba9c7-105f-48a3-96ae-44d90d19c3b6":{
+         "id":"392ba9c7-105f-48a3-96ae-44d90d19c3b6",
+         "title":"Read a book"
+      },
+      "bdafb144-2c8c-4abf-8a92-4428fd9051d0":{
+         "id":"bdafb144-2c8c-4abf-8a92-4428fd9051d0",
+         "title":"Drink a tea"
+      }
+   }
+}
