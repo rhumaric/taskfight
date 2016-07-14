@@ -34,3 +34,19 @@ export function taskRemoved(task) {
     }
   }
 }
+
+export function winnerSet() {
+  return {
+    type: 'WINNER_SET'
+  }
+}
+
+export function setWinner(fight, task) {
+  return {
+    type: 'SET_WINNER',
+    payload: {
+      fight,
+      task
+    }
+  }
+}

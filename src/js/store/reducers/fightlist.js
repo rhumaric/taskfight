@@ -1,5 +1,8 @@
+import {Effects,loop} from 'redux-loop';
 import map from 'lodash/map';
 import uuid from 'node-uuid';
+import findIndex from 'lodash/findIndex';
+import * as actions from '../actionCreators';
 
 const reducers = {
   TASK_ADDED (state=[],action) {
@@ -23,6 +26,18 @@ const reducers = {
     });
 
     return result;
+  },
+  SET_WINNER (state=[], action) {
+    var {fight, task} = action.payload;
+    var index = findIndex(state, {id: fight});
+
+    return loop([
+      ...state.slice(0, index),
+      {...state[index], winner: task},
+      ...state.slice(index + 1)
+    ],
+      Effects.constant(actions.winnerSet())
+    );
   }
 };
 
