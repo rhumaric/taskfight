@@ -1,12 +1,13 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from './store/actionCreators';
-import results from './store/selectors/results';
+import * as selectors from './store/selectors';
 
 function mapStateToProps(state) {
   return {
     ...state,
-    results: results(state),
+    results: selectors.results(state),
+    progress: selectors.progress(state)
   }
 }
 
