@@ -1,5 +1,50 @@
-$family: sans-serif;
+@font-face {
+  font-family: 'EvelethClean';
+  src:  url('fonts/evelethclean-webfont.woff2') format('woff2'),
+        url('fonts/evelethclean-webfont.woff') format('woff');
+}
+
+$tfRed: #cb323e;
+$tfDarkRed: #aa2631;
+$tfYellow: #ecc84f;
+$tfPurple: #311c2d;
+$tfFontSize: 22px;
+
+$logoHeight: 125;
+$logoWidth: 450;
+
+$halftoneWidth: 237.092px;
+$halftoneHeight: 4px;
+$referenceWidth: 237px;
+$ratio: 1.5;
+
+@import "_halftone.scss";
+@import "_resets.scss";
 
 body {
-  font-family: $family; 
+  font-family: EvelethClean, sans-serif;
+  color: $tfPurple;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.tf-Header {
+  text-align: center;
+  transform: rotate(0);
+  height: 2em;
+  background: $tfPurple;
+}
+
+.tf-Monogram {
+  height: 3.5em;
+  margin-top: 0.2em;
 }

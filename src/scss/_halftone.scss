@@ -1,0 +1,55 @@
+.halftone {
+
+  background: $tfRed;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: url(images/taskfight-halftone.svg) repeat-y;
+    background-position: top right;
+    background-size: $ratio*$halftoneWidth $ratio*$halftoneHeight;
+    height: 100vw;
+    width: 360px;
+    z-index: -1;
+  }
+
+  &::before {
+    top: 0;
+    left:0;
+    transform-origin: 0 0;
+    transform: translateY(360px) rotate(-90deg);  
+  }
+
+  &::after {
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 100%;
+    transform: translateY(-360px) rotate(90deg);
+  }
+}
+
+@media only screen 
+   and (min-width: 2*$halftoneWidth)
+   and (orientation: landscape) {
+  
+  .halftone::before,
+  .halftone::after {
+    height: auto;
+    width: auto;
+  }
+
+  .halftone::before {
+    transform: none;
+    bottom: 0;
+    right: 0;
+    transform-origin: 50%;
+    transform: rotate(180deg);
+  }
+
+  .halftone::after {
+    transform: none;
+    top: 0;
+    right: 0;
+  }
+}

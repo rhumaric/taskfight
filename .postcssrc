@@ -1,0 +1,14 @@
+var path = require('path');
+
+module.exports = {
+  use: [
+    'postcss-nested',
+    'postcss-simple-vars',
+    'postcss-copy-assets'
+  ],
+  input: 'src/css/style.css',
+  output: 'www/style.css',
+  "postcss-copy-assets": {
+    "from": "src/style.css"
+  }
+}
