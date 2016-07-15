@@ -53,6 +53,7 @@
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "redux-loop": "^2.1.1",
+    "reselect": "^2.5.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
