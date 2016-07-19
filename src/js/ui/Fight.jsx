@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
 import find from 'lodash/find';
+import Progress from './Progress';
 
 export default class Fight extends Component {
 
@@ -31,6 +32,7 @@ export default class Fight extends Component {
         <div className="tf-Task tf-FightStage__Task" onClick={this.handleClick.bind(null, task.id)}>{task.title}</div>
         <p className="tf-FightStage__Separator tf-FightSeparator">Or</p>
         <div className="tf-Task tf-FightStage__Task" onClick={this.handleClick.bind(null, otherTask.id)}>{otherTask.title}</div>
+        <Progress {...this.props} className="tf-FightStage__Progress"/>
       </div>
     );
   }

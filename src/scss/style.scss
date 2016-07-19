@@ -200,6 +200,8 @@ $unit: 44px;
 
 .tf-FightStage {
   display: flex;
+  flex-wrap: wrap;
+  position: relative;
 
   &__Task {
     flex: 1;
@@ -208,6 +210,28 @@ $unit: 44px;
   &__Separator {
     flex: 0;
   }
+
+  &__Progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.tf-Progress {
+  height: 4px;
+  overflow: hidden;
+  background: $tfPurple;
+}
+
+.tf-ProgressValue {
+  padding-top: 4px;
+  background: $tfYellow;
+  min-width: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .tf-Task {
