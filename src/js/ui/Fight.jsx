@@ -27,10 +27,10 @@ export default class Fight extends Component {
     var otherTask = this.props.tasks[fight.otherTask];
 
     return (
-      <div className={this.props.className}>
-      <button onClick={this.handleClick.bind(null, task.id)}>{task.title}</button>
-      <p>Or</p>
-      <button onClick={this.handleClick.bind(null, otherTask.id)}>{otherTask.title}</button>
+      <div className={"tf-FightStage " + this.props.className}>
+        <div className="tf-Task tf-FightStage__Task" onClick={this.handleClick.bind(null, task.id)}>{task.title}</div>
+        <p className="tf-FightStage__Separator tf-FightSeparator">Or</p>
+        <div className="tf-Task tf-FightStage__Task" onClick={this.handleClick.bind(null, otherTask.id)}>{otherTask.title}</div>
       </div>
     );
   }
