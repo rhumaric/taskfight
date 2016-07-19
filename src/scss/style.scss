@@ -18,6 +18,8 @@ $halftoneHeight: 4px;
 $referenceWidth: 237px;
 $ratio: 1.5;
 
+$unit: 44px;
+
 @import "_halftone.scss";
 @import "_resets.scss";
 
@@ -37,6 +39,39 @@ body {
     width: 1px;
 }
 
+.tf-CenteredColumn {
+  max-width: 600px;
+  margin: auto;
+}
+
+.tf-Input {
+  line-height: $unit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0 1em;
+  border: none;
+  background: white;
+  color: $tfPurple;
+}
+
+.tf-Button {
+  line-height: $unit;
+  font-size: 30px;
+  font-family: inherit;
+  border: none;
+  padding: 0 0;
+  text-align: center;
+
+  background: $tfYellow;
+  color: $tfPurple;
+
+  &-square {
+    display: inline-block;
+    width: $unit;
+    text-align: center;
+  }
+}
+
 .tf-Header {
   text-align: center;
   z-index: 0;
@@ -48,7 +83,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 2em;
+    height: $unit;
     background: $tfPurple;
     z-index: -1;
   }
@@ -82,10 +117,27 @@ body {
   &__Stage {
     flex: 1;
     overflow: auto;
+
+    padding: 1em;
+
+    color: $tfYellow;
   }
 
   &__Menu {
     flex: 0;
+  }
+}
+
+.tf-AddTaskForm {
+  display: flex;
+  
+  &__Input {
+    flex: 1;
+  }
+
+  &__Button {
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 }
 
@@ -96,12 +148,14 @@ body {
   background: $tfPurple;
   color: mix(white, $tfPurple, 60%);
 
-  line-height: 2em;
+  line-height: $unit;
+  height: $unit;
+  flex-basis: $unit;
 }
 
 .tf-StageNavigationLink,
 .tf-StageNavigationLink:visited {
-  width: 2em;
+  width: $unit;
   display: block;
   text-align: center;
   color: inherit;
