@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route, Redirect, browserHistory} from 'react-router';
+import last from 'lodash/last';
 
 import App from './App';
 import TaskList from './TaskList';
@@ -11,13 +12,15 @@ function validateFightRoute (store, nextState, replace) {
   const fightId = nextState.params.fightId;
 
   if (fightId === 'next') {
-    const nextFight = state.fightlist.find((fight) => {
-      return !fight.winner;
-    });
 
-    if (!nextFight) {
+    if (state.fightlist.length < 2) {
       replace('/tasklist');
     } else {
+
+      const nextFight = state.fightlist.find((fight) => {
+        return !fight.winner;
+      }) || last(state.fightlist); 
+
       replace(`/fights/${nextFight.id}`);
     }
   }
