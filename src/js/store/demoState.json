@@ -19,15 +19,15 @@
    "tasks":{
       "d39f73b9-213b-4c1f-8c58-560a4d5cd1da":{
          "id":"d39f73b9-213b-4c1f-8c58-560a4d5cd1da",
-         "title":"Take a nap"
+         "title":"A task"
       },
       "392ba9c7-105f-48a3-96ae-44d90d19c3b6":{
          "id":"392ba9c7-105f-48a3-96ae-44d90d19c3b6",
-         "title":"Read a book"
+         "title":"A task with a long name, like a super long one... super super long one"
       },
       "bdafb144-2c8c-4abf-8a92-4428fd9051d0":{
          "id":"bdafb144-2c8c-4abf-8a92-4428fd9051d0",
-         "title":"Drink a tea"
+         "title":"A task I ❤"
       }
    }
 }

@@ -51,7 +51,7 @@ export default class TaskList extends Component {
         <form ref="form" className="tf-CenteredColumn tf-AddTaskForm" onSubmit={this.handleSubmit}>
           {this.maybeRenderError()}
           <input className="tf-AddTaskForm__Input tf-Input" size="1" type="text" ref="title" name="title" placeholder="..." required/>
-          <button className="tf-AddTaskForm__Button tf-Button tf-Button-square" type="submit">+</button>
+          <button className="tf-AddTaskForm__Button tf-Button tf-Button-primary tf-Button-square" type="submit">+</button>
         </form>
         <ul className="tf-CenteredColumn">
           {map(this.props.tasks, (task,i) => {
