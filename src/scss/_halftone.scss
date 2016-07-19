@@ -30,8 +30,7 @@
 }
 
 @media only screen 
-   and (min-width: 2*$halftoneWidth)
-   and (orientation: landscape) {
+   and (min-aspect-ratio: 1/1) {
   
   .halftone::before,
   .halftone::after {

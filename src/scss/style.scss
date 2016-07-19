@@ -242,7 +242,7 @@ $unit: 44px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-aspect-ratio: 1/1) {
   .tf-FightStage {
     flex-direction: column;
   }
