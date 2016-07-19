@@ -47,7 +47,7 @@ export default class TaskList extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <form ref="form" onSubmit={this.handleSubmit}>
           {this.maybeRenderError()}
           <input type="text" ref="title" name="title" placeholder="..." required/>

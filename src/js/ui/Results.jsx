@@ -14,7 +14,7 @@ export default class Results extends Component {
 
   render() {
     return (
-      <ol>
+      <ol className={this.props.className}>
         {this.props.results.map(this.renderResult)}
       </ol>
     );

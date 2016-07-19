@@ -6,21 +6,21 @@ export default class StagesNavigation extends Component {
 
   renderPrevious() {
     if (this.props.previous) {
-      return <Link to={this.props.previous}>&lt;</Link>
+      return <Link className="tf-StageNavigationLink" to={this.props.previous}>&lt;</Link>
     } else {
-      return <a disabled>&lt;</a>
+      return <span className="tf-StageNavigationLink tf-StageNavigationLink-disabled">&lt;</span>
     }
   }
   renderNext() {
     if(this.props.next) {
-      return <Link to={this.props.next}>&gt;</Link>
+      return <Link className="tf-StageNavigationLink" to={this.props.next}>&gt;</Link>
     } else {
-      return <a disabled>&gt;</a>
+      return <span className="tf-StageNavigationLink tf-StageNavigationLink-disabled">&gt;</span>
     }
   }
   render() {
     return (
-      <nav>
+      <nav className={"tf-StageNavigation " + this.props.className}>
         {this.renderPrevious()}  
 
         <p>{this.props.title}</p>

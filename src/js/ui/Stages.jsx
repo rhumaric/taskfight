@@ -52,16 +52,20 @@ export default class Stages extends Component {
   render() {
 
     const stage = this.constructor.stages[this.getStage()];
-
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, {
+        className: (child.className || "") + ' tf-Stages__Stage'
+      });
+    });
     return (
 
-      <div>
-        {this.props.children}
-        <StagesNavigation 
+      <main className={"tf-Stages " + this.props.className}>
+        {children}
+        <StagesNavigation className="tf-Stages__Menu"
           title={stage.title} 
           next={stage.next(this.props.fightlist)} 
           previous={stage.previous(this.props.fightlist)} />
-      </div>
+      </main>
     );
   }
 }

@@ -23,8 +23,14 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
 html,
-body {
+body,
+#app {
   margin: 0;
   padding: 0;
+  height: 100%;
 }

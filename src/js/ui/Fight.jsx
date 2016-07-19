@@ -27,7 +27,7 @@ export default class Fight extends Component {
     var otherTask = this.props.tasks[fight.otherTask];
 
     return (
-      <div>
+      <div className={this.props.className}>
       <button onClick={this.handleClick.bind(null, task.id)}>{task.title}</button>
       <p>Or</p>
       <button onClick={this.handleClick.bind(null, otherTask.id)}>{otherTask.title}</button>
