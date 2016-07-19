@@ -8,13 +8,13 @@ export default class Results extends Component {
 
     var task = this.props.tasks[result[0]];
     return (
-      <li key={task.id}>{task.title}</li>
+      <li className="tf-ListItem tf-ResultStage__Task" key={task.id}>{task.title}</li>
     )
   }
 
   render() {
     return (
-      <ol className={this.props.className}>
+      <ol className={"tf-ResultStage tf-CenteredColumn" + this.props.className}>
         {this.props.results.map(this.renderResult)}
       </ol>
     );

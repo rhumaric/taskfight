@@ -172,7 +172,7 @@ $unit: 44px;
   }
 }
 
-.tf-TaskListItem {
+.tf-ListItem {
 
   text-align: center;
 
@@ -271,4 +271,30 @@ $unit: 44px;
   }
 }
 
+.tf-ResultStage {
+  counter-reset: ranking;
+  text-align: center;
+}
 
+.tf-ResultStage__Task {
+
+  &:nth-child(1) {
+    font-size: 36px;
+    line-height: 1.3em;
+  }
+
+  &:nth-child(2) {
+    font-size: 30px;
+  }
+
+  &:nth-child(3) {
+    font-size: 24px;
+  }
+
+  &::before {
+    display:block;
+    counter-increment: ranking;
+    content: counter(ranking) ". ";
+    color: $tfPurple;
+  }
+}
