@@ -82,6 +82,11 @@ $unit: 44px;
   }
 }
 
+.tm-Menu {
+  background: $tfPurple;
+  color: mix(white, $tfPurple, 60%);
+}
+
 .tf-Header {
   text-align: center;
   z-index: 0;
@@ -96,6 +101,10 @@ $unit: 44px;
     height: $unit;
     background: $tfPurple;
     z-index: -1;
+  }
+
+  &-noMenu .tf-Header__Menu{
+    display: none;
   }
 }
 
