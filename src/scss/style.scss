@@ -23,6 +23,7 @@ $unit: 44px;
 @import "_halftone.scss";
 @import "_resets.scss";
 
+// Utility classes from html5 boilerplate
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -34,6 +35,19 @@ $unit: 44px;
     width: 1px;
 }
 
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Taskfight generic classes
 .tf-CenteredColumn {
   max-width: 600px;
   margin: auto;
@@ -62,6 +76,7 @@ $unit: 44px;
   border: none;
   padding: 0 0;
   text-align: center;
+  line-height: $unit - 2px; // Not sure why these 2px, but they're needed for vertical alignment :/
   
   color: $tfPurple;
 
@@ -76,35 +91,70 @@ $unit: 44px;
   &-square {
     display: inline-block;
     height: $unit;
-    line-height: $unit - 2px; // Not sure why these 2px, but they're needed for vertical alignment :/
     width: $unit;
     text-align: center;
   }
 }
 
-.tm-Menu {
+
+// Component specific styles
+.tf-Menu,
+.tf-MenuToggle {
   background: $tfPurple;
   color: mix(white, $tfPurple, 60%);
 }
 
+.tf-MenuToggle {
+  font-size: 16px;
+  padding: 0 0.75em;
+}
+
+.tf-MenuItem {
+  width: 100%; //Ensures <button> are full width... not sure why... display block should be enough
+  display: block;
+
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  padding: 0.7em 1em;
+
+  border-bottom: solid 4px mix(white, $tfPurple, 10%);
+}
+
 .tf-Header {
+
+  display: flex;
+  flex-direction: column;
+
+  &__Menu {
+    order: -1;
+  }
+
+  &-noMenu .tf-Header__Menu{
+    display: none;
+  }
+}
+
+.tf-TitleBar {
   text-align: center;
+  position: relative;
   z-index: 0;
 
   &::before {
     content: "";
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     height: $unit;
     background: $tfPurple;
+    position: absolute;
+    left: 0;
+    right: 0;
     z-index: -1;
   }
 
-  &-noMenu .tf-Header__Menu{
-    display: none;
+  &__MenuToggle {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -170,7 +220,7 @@ $unit: 44px;
   color: inherit;
 
   &-disabled {
-    color: mix(white, $tfPurple, 30%); 
+    color: mix(white, $tfPurple, 10%); 
   }
 }
 
