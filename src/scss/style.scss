@@ -75,7 +75,8 @@ $unit: 44px;
 
   &-square {
     display: inline-block;
-    line-height: $unit;
+    height: $unit;
+    line-height: $unit - 2px; // Not sure why these 2px, but they're needed for vertical alignment :/
     width: $unit;
     text-align: center;
   }
