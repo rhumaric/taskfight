@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
 import map from 'lodash/map';
+import find from 'lodash/find';
 
 import TaskListItem from './TaskListItem';
 import messages from './messages';
@@ -35,9 +36,22 @@ export default class TaskList extends Component {
         taskAlreadyExists: true
       });
     }
-
-
   }
+
+  confirmTaskRemoval(taskId) {
+
+    const hasFought = find(this.props.fightlist, (fight) => {
+      return (fight.task === taskId || fight.otherTask === taskId) &&
+      !!fight.winner ;
+    });
+
+    const removeTask = !hasFought || confirm(messages.TASK_REMOVAL_CONFIRM);
+    
+    if (removeTask) {
+      this.props.removeTask(taskId);
+    }
+  }
+
   maybeRenderError() {
     if (this.state.taskAlreadyExists) {
       return (
@@ -45,6 +59,7 @@ export default class TaskList extends Component {
       )
     }
   }
+
   render() {
     return (
       <div className={this.props.className}>
@@ -55,7 +70,7 @@ export default class TaskList extends Component {
         </form>
         <ul className="tf-CenteredColumn">
           {map(this.props.tasks, (task,i) => {
-            return <TaskListItem key={i} task={task} removeTask={this.props.removeTask} />
+            return <TaskListItem key={i} task={task} removeTask={this.confirmTaskRemoval} />
           })}
         </ul>
       </div>
