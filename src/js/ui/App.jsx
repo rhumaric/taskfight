@@ -32,8 +32,9 @@ export default class App extends Component {
       <div className="tf-App">
         <header className={classnames("tf-App__Header tf-Header", {'tf-Header-noMenu': this.state.hideMenu})}>
           <div className="tf-TitleBar clearfix">
-            <h1 className="visuallyhidden">Taskfight</h1>
-            <svg className="tf-Monogram" viewBox="0 0 145 125" dangerouslySetInnerHTML={{__html:"<use xlink:href='#monogram' />"}}/>
+            <h1 className="tf-Logo">
+              <span className="visuallyhidden">Taskfight</span>
+            </h1>
             <button className="tf-TitleBar__MenuToggle tf-Button tf-MenuToggle" onClick={this.toggleMenu}>Menu</button>
           </div>
           <nav className="tf-Menu tf-Header__Menu">
