@@ -50,3 +50,9 @@ export function setWinner(fight, task) {
     }
   }
 }
+
+export function newFight() {
+  return {
+    type: 'NEW_FIGHT'
+  }
+}

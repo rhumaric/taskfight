@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import autobind from 'autobind-decorator';
 
+import messages from './messages';
 import Stages from './Stages';
 
 @autobind
@@ -10,7 +11,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      hideMenu: true
+      hideMenu: false
     }
   }
 
@@ -18,6 +19,12 @@ export default class App extends Component {
     this.setState({
       hideMenu: !this.state.hideMenu
     });
+  }
+
+  confirmNewFight() {
+    if (confirm(messages.NEW_FIGHT_CONFIRM)){
+      this.props.newFight();
+    }
   }
 
   render() {
@@ -28,7 +35,7 @@ export default class App extends Component {
           <svg className="tf-Monogram" viewBox="0 0 145 125" dangerouslySetInnerHTML={{__html:"<use xlink:href='#monogram' />"}}/>
           <button className="tf-MenuToggle" onClick={this.toggleMenu}>Menu</button>
           <nav className="tf-Menu tf-Header__Menu">
-            <button className="tf-MenuItem">New fight</button>
+            <button className="tf-MenuItem" onClick={this.confirmNewFight}>New fight</button>
           </nav>
         </header>
         <Stages {...this.props} className="tf-App__Main" >
