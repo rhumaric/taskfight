@@ -10,7 +10,11 @@ import store from './store';
 import {browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
-const history = syncHistoryWithStore(browserHistory, store);
+import { createHistory, useBasename } from 'history';
+
+const history = syncHistoryWithStore(useBasename(createHistory)({
+  basename: document.querySelector('base').getAttribute('href')
+}), store);
 
 import App from './ui/App';
 import connect from './connect';
