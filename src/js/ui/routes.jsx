@@ -13,7 +13,7 @@ function validateFightRoute (store, nextState, replace) {
 
   if (fightId === 'next') {
 
-    if (state.fightlist.length < 2) {
+    if (!state.fightlist.length) {
       replace('/tasklist');
     } else {
 
