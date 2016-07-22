@@ -2,13 +2,14 @@ var path = require('path');
 
 module.exports = {
   use: [
-    'postcss-nested',
-    'postcss-simple-vars',
-    'postcss-copy-assets'
+    'autoprefixer',
+    'cssnano'
   ],
-  input: 'src/css/style.css',
   output: 'www/style.css',
-  "postcss-copy-assets": {
-    "from": "src/style.css"
+  autoprefixer: {
+    browsers: 'last 2 versions'
+  },
+  cssnano: {
+    safe: true
   }
 }
