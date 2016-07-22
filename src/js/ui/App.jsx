@@ -21,9 +21,17 @@ export default class App extends Component {
     });
   }
 
+  hideMenu() {
+    this.setState({
+      hideMenu: true
+    })
+  }
+
   confirmNewFight() {
     if (confirm(messages.NEW_FIGHT_CONFIRM)){
       this.props.newFight();
+      this.hideMenu();
+      this.props.history.push('/tasklist');
     }
   }
 
