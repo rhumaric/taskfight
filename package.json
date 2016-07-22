@@ -8,7 +8,7 @@
     "dev:css": "node-sass --watch src/scss/style.scss www/style.css",
     "dev": "run-p dev:html dev:js dev:css start",
     "build:html": "pug src/index.pug --out www",
-    "build:js": "webpack -p",
+    "build:js": "NODE_ENV=production webpack -p",
     "build:css": "node-sass src/scss/style.scss www/style.css",
     "build": "run-p build:html build:js build:css",
     "start": "browser-sync start --config bs-config.js",

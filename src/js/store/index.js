@@ -15,12 +15,30 @@ import {install} from 'redux-loop';
 
 import rootReducer from './reducers';
 
-import demoState from './demoState.json';
+let initialState;
 
-// TODO: Remove the devtools bit in production
-const store = createStore(rootReducer, demoState, compose(
-  install(),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-));
+if (process.env.NODE_ENV === 'production') {
+  initialState = {
+    fightlist: [],
+    tasks: {}
+  }
+} else {
+  initialState = require('./demoState.json');
+}
+
+let enhancer;
+
+if (process.env.NODE_ENV === 'production') {
+  enhancer = install();
+
+  
+} else {
+  enhancer = compose(
+    install(),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  );
+}
+
+const store = createStore(rootReducer, initialState, enhancer);
 
 export default store;
