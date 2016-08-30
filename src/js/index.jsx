@@ -7,12 +7,12 @@ import {Provider} from 'react-redux';
 import routes from './ui/routes';
 import store from './store';
 
-import {browserHistory} from 'react-router';
+import {browserHistory, useRouterHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
 import { createHistory, useBasename } from 'history';
 
-const history = syncHistoryWithStore(useBasename(createHistory)({
+const history = syncHistoryWithStore(useRouterHistory(useBasename(createHistory))({
   basename: document.querySelector('base').getAttribute('href')
 }), store);
 
