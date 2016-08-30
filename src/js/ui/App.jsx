@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router';
 import classnames from 'classnames';
 import autobind from 'autobind-decorator';
 
@@ -6,7 +7,7 @@ import messages from './messages';
 import Stages from './Stages';
 
 @autobind
-export default class App extends Component {
+class App extends Component {
 
   constructor() {
     super();
@@ -31,7 +32,7 @@ export default class App extends Component {
     if (confirm(messages.NEW_FIGHT_CONFIRM)){
       this.props.newFight();
       this.hideMenu();
-      this.props.history.push('/tasklist');
+      this.props.router.push('/tasklist');
     }
   }
 
@@ -56,3 +57,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default withRouter(App);

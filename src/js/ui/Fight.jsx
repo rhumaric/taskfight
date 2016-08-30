@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router';
 import autobind from 'autobind-decorator';
 import find from 'lodash/find';
 import Progress from './Progress';
 
-export default class Fight extends Component {
+@autobind
+class Fight extends Component {
 
-  @autobind
+  
   handleClick (task, event) {
     event.preventDefault();
     this.props.setWinner(this.props.params.fightId, task).then(() => {
@@ -13,9 +15,9 @@ export default class Fight extends Component {
         return !fight.winner;
       });
       if (nextFight) {
-        this.props.history.push('/fights/' + nextFight.id);
+        this.props.router.push('/fights/' + nextFight.id);
       } else {
-        this.props.history.push('/results');
+        this.props.router.push('/results');
       }
     });
   }
@@ -37,3 +39,5 @@ export default class Fight extends Component {
     );
   }
 }
+
+export default withRouter(Fight);
