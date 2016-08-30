@@ -28,11 +28,8 @@ function validateFightRoute (store, nextState, replace) {
     }
   }
 
-  console.log('Looking for fight ', fightId);
   const fight = find(state.fightlist, {id: fightId});
-  console.log(state.fightlist);
   if (!fight) {
-    console.log('The fight does not exist');
     replace('/tasklist');
     return;
   }

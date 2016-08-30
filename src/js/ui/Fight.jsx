@@ -25,7 +25,6 @@ class Fight extends Component {
   render() {
 
     var fight = find(this.props.fightlist, {id:this.props.params.fightId});
-    console.log(fight);
     var task = this.props.tasks[fight.task];
     var otherTask = this.props.tasks[fight.otherTask];
 

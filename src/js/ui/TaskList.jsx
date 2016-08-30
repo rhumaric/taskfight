@@ -55,7 +55,7 @@ export default class TaskList extends Component {
   maybeRenderError() {
     if (this.state.taskAlreadyExists) {
       return (
-        <p className="error">{messages.TASK_ALREADY_EXISTS}</p>
+        <p className="tf-AddTaskForm__Error error">{messages.TASK_ALREADY_EXISTS}</p>
       )
     }
   }

@@ -11,7 +11,9 @@ const tasks = {
   ADD_TASK (state={}, action) {
     var title = action.payload.title;
 
-    if (findKey(state, {title})) {
+    if (findKey(state, t => {
+      return t.title.toUpperCase() === title.toUpperCase();
+    })) {
       throw new StoreError('TASK_ALREADY_EXISTS');
     }
 

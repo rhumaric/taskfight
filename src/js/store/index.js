@@ -1,16 +1,4 @@
-// Redux store
-// 
-// Contents:
-// 
-//  - tasks []
-//  - fightlist []
-//  - ui {
-//  
-//    - activeStage ? (UI State?)
-//    - editedTask ? (UI State?)
-//    }
-//  - ?
-import {createStore, compose} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import {install} from 'redux-loop';
 
 import rootReducer from './reducers';
@@ -29,10 +17,18 @@ if (process.env.NODE_ENV === 'production') {
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {
-  enhancer = install();
+  enhancer = compose(
+    install()
+  );
 
   
 } else {
+
+  if (!window.devToolsOptions) { 
+    window.devToolsOptions = {};
+  }
+  window.devToolsOptions.shouldCatchErrors = false;
+
   enhancer = compose(
     install(),
     window.devToolsExtension ? window.devToolsExtension() : f => f

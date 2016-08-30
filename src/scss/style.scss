@@ -233,9 +233,14 @@ $unit: 44px;
 
 .tf-AddTaskForm {
   display: flex;
+  flex-wrap: wrap;
 
   margin-top: 1.5em;
   margin-bottom: 3em;
+
+  &__Error {
+    flex: 0 0 100%;
+  }
   
   &__Input {
     flex: 1;
