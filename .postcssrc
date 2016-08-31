@@ -3,11 +3,10 @@ var path = require('path');
 module.exports = {
   use: [
     'autoprefixer',
-    'cssnano'
   ],
   output: 'www/style.css',
   autoprefixer: {
-    browsers: 'last 2 versions'
+    browsers: 'last 2 versions, safari >=6, ios_saf >=6'
   },
   cssnano: {
     safe: true
