@@ -1,54 +1,44 @@
+/**
+ * Makes sure halftone background is sized properly to avoid spacing on chrome
+ * @param  {[type]} $ratio:       0.48          [description]
+ * @param  {[type]} $orientation: 'landscape'   [description]
+ * @return {[type]}               [description]
+ */
+@function halftone-size($ratio: 0.48, $orientation: 'landscape') {
+  $halftoneMax: 664px;
+  $halftoneMin: 12px;
+  
+  $sizeMin: round($ratio*$halftoneMin);
+  $sizeMax: $sizeMin * $halftoneMax/$halftoneMin;
+
+  @if $orientation == 'landscape' {
+    @return $sizeMax $sizeMin;
+  }
+  @else {
+    @return $sizeMin $sizeMax;
+  }
+}
+
+
+
+
+
 .halftone {
 
   background: $tfRed;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    background: url(images/taskfight-halftone.svg) repeat-y;
-    background-position: top right;
-    background-size: $ratio*$halftoneWidth $ratio*$halftoneHeight;
-    height: 100vw;
-    width: 360px;
-    z-index: -1;
-  }
-
-  &::before {
-    top: 0;
-    left:0;
-    transform-origin: 0 0;
-    transform: translateY(360px) rotate(-90deg);  
-  }
-
-  &::after {
-    bottom: 0;
-    left: 0;
-    transform-origin: 0 100%;
-    transform: translateY(-360px) rotate(90deg);
-  }
+  background-image: url(images/taskfight-halftone-fade-down.svg), url(images/taskfight-halftone-fade-up.svg);
+  background-position: 0 0, 0 100%;
+  background-repeat: repeat-x;
+  background-size: halftone-size(0.48, 'portrait');
 }
 
 @media only screen 
    and (min-aspect-ratio: 1/1) {
   
-  .halftone::before,
-  .halftone::after {
-    height: auto;
-    width: auto;
-  }
-
-  .halftone::before {
-    transform: none;
-    bottom: 0;
-    right: 0;
-    transform-origin: 50%;
-    transform: rotate(180deg);
-  }
-
-  .halftone::after {
-    transform: none;
-    top: 0;
-    right: 0;
+  .halftone {
+    background-image: url(images/taskfight-halftone-fade-right.svg), url(images/taskfight-halftone-fade-left.svg);
+    background-position: 0 0, 100% 0;
+    background-repeat: repeat-y;
+    background-size: halftone-size(0.48*0.8, 'landscape');
   }
 }
