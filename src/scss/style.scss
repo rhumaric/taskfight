@@ -136,7 +136,7 @@ $unit: 44px;
 }
 
 .tf-TitleBar {
-  text-align: center;
+  text-align: right;
   position: relative;
   z-index: 0;
 
@@ -150,19 +150,19 @@ $unit: 44px;
     right: 0;
     z-index: -1;
   }
-
-  &__MenuToggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
 }
 
 .tf-Logo {
   height: 83px;
+  width: 97px;
   margin-top: 0.2em;
   background: url(images/lettering-and-monogram.svg) top center no-repeat;
-  background-size: 97px 83px;
+  background-size: 100%;
+  position: absolute;
+  top: 0.2em;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .tf-Monogram {
@@ -197,10 +197,16 @@ $unit: 44px;
   &__Stage {
     flex: 1;
     overflow: auto;
-
-    padding: 1em;
+  
+    padding: 0 22px;
 
     color: $tfYellow;
+
+    margin-top: 60px;
+
+    &.tf-FightStage {
+      margin-top: 0;
+    }
   }
 
   &__Menu {
@@ -341,13 +347,13 @@ $unit: 44px;
   }
 
   &::before {
-    top: 0;
-    bottom: 60%;
+    top: 60px;
+    bottom: calc(50% + 1.5em);
   }
 
   &::after {
-    top: 60%;
-    bottom: 0;
+    top: calc(50% + 1.5em);
+    bottom: 22px;
   }
 }
 

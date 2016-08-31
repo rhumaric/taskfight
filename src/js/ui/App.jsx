@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div className="tf-App">
         <header className={classnames("tf-App__Header tf-Header", {'tf-Header-noMenu': this.state.hideMenu})}>
-          <div className="tf-TitleBar clearfix">
+          <div className="tf-TitleBar">
             <h1 className="tf-Logo">
               <span className="visuallyhidden">Taskfight</span>
             </h1>
