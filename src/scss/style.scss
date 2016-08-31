@@ -206,6 +206,7 @@ $unit: 44px;
 
     &.tf-FightStage {
       margin-top: 0;
+      padding: 0;
     }
   }
 
@@ -313,7 +314,8 @@ $unit: 44px;
 }
 
 .tf-Task {
-  padding: 1em;
+  padding: 1em 2em;
+  overflow: hidden;
 }
 
 .tf-Task,
@@ -360,6 +362,11 @@ $unit: 44px;
 @media only screen and (max-aspect-ratio: 1/1) {
   .tf-FightStage {
     flex-direction: column;
+  }
+
+  .tf-Task {
+
+    margin: 44px 0;
   }
 
   .tf-FightSeparator {
