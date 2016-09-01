@@ -9,7 +9,7 @@
   $halftoneMin: 12px;
   
   $sizeMin: round($ratio*$halftoneMin);
-  $sizeMax: $sizeMin * $halftoneMax/$halftoneMin;
+  $sizeMax: round($sizeMin * $halftoneMax/$halftoneMin);
 
   @if $orientation == 'landscape' {
     @return $sizeMax $sizeMin;
@@ -18,10 +18,6 @@
     @return $sizeMin $sizeMax;
   }
 }
-
-
-
-
 
 .halftone {
 
@@ -39,6 +35,6 @@
     background-image: url(images/taskfight-halftone-fade-right.svg), url(images/taskfight-halftone-fade-left.svg);
     background-position: 0 0, 100% 0;
     background-repeat: repeat-y;
-    background-size: halftone-size(0.48*0.8, 'landscape');
+    background-size: halftone-size(0.48, 'landscape');
   }
 }
