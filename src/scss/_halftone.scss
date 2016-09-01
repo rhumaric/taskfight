@@ -4,11 +4,10 @@
  * @param  {[type]} $orientation: 'landscape'   [description]
  * @return {[type]}               [description]
  */
-@function halftone-size($ratio: 0.48, $orientation: 'landscape') {
+@function halftone-size($sizeMin: 6px, $orientation: 'landscape') {
   $halftoneMax: 664px;
   $halftoneMin: 12px;
   
-  $sizeMin: round($ratio*$halftoneMin);
   $sizeMax: round($sizeMin * $halftoneMax/$halftoneMin);
 
   @if $orientation == 'landscape' {
@@ -25,16 +24,34 @@
   background-image: url(images/taskfight-halftone-fade-down.svg), url(images/taskfight-halftone-fade-up.svg);
   background-position: 0 0, 0 100%;
   background-repeat: repeat-x;
-  background-size: halftone-size(0.48, 'portrait');
+  background-size: halftone-size(6px, 'portrait');
+}
+
+@media only screen
+  and (max-aspect-ratio: 1/1)
+  and (max-height: 664px) {
+  
+  .halftone {
+    background-size: halftone-size(5px, 'portrait');
+  }
 }
 
 @media only screen 
-   and (min-aspect-ratio: 1/1) {
+  and (min-aspect-ratio: 1/1) {
   
   .halftone {
     background-image: url(images/taskfight-halftone-fade-right.svg), url(images/taskfight-halftone-fade-left.svg);
     background-position: 0 0, 100% 0;
     background-repeat: repeat-y;
-    background-size: halftone-size(0.48, 'landscape');
+    background-size: halftone-size(6px, 'landscape');
+  }
+}
+
+@media only screen
+  and (min-aspect-ratio: 1/1)
+  and (max-width: 664px) {
+  
+  .halftone {
+    background-size: halftone-size(5px, 'landscape');
   }
 }
