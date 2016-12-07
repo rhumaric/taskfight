@@ -77,10 +77,10 @@ $unit: 44px;
   padding: 0 0;
   text-align: center;
   line-height: $unit - 2px; // Not sure why these 2px, but they're needed for vertical alignment :/
-  
+
   color: $tfPurple;
 
-  &-primary { 
+  &-primary {
     background: $tfYellow;
   }
 
@@ -197,7 +197,7 @@ $unit: 44px;
   &__Stage {
     flex: 1;
     overflow: auto;
-  
+
     padding: 0 22px;
 
     color: $tfYellow;
@@ -217,7 +217,7 @@ $unit: 44px;
 
 .tf-StageNavigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   background: $tfPurple;
   color: mix(white, $tfPurple, 60%);
@@ -234,7 +234,7 @@ $unit: 44px;
   color: inherit;
 
   &-disabled {
-    color: mix(white, $tfPurple, 10%); 
+    color: mix(white, $tfPurple, 10%);
   }
 }
 
@@ -248,7 +248,7 @@ $unit: 44px;
   &__Error {
     flex: 0 0 100%;
   }
-  
+
   &__Input {
     flex: 1;
   }
@@ -344,7 +344,7 @@ $unit: 44px;
     transform: translateX(-50%);
     width: 4px;
 
-    
+
     background: $tfPurple;
   }
 
@@ -378,7 +378,7 @@ $unit: 44px;
       height: 4px;
       width: auto;
     }
-  
+
 
     &::before {
 

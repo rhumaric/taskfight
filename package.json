@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "dev:html": "pug src/index.pug --out www -O {pretty:true}",
-    "dev:js": "webpack -d",
+    "dev:js": "webpack -d -w",
     "dev:css": "chokidar '**/*.scss' -c 'npm run build:css'",
     "dev": "run-p dev:html dev:js dev:css start",
     "build:html": "pug src/index.pug --out www",

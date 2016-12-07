@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import _ from 'lodash';
 
 
 export default class StagesNavigation extends Component {
@@ -19,13 +20,14 @@ export default class StagesNavigation extends Component {
     }
   }
   render() {
+
+    const hasFights = !!this.props.fightlist.length;
+
     return (
       <nav className={"tf-StageNavigation " + this.props.className}>
-        {this.renderPrevious()}  
-
-        <p>{this.props.title}</p>
-
-        {this.renderNext()}
+        <Link className="tf-StageNavigationLink" to="/tasklist">List</Link>
+        <Link className="tf-StageNavigationLink" to={hasFights ? '/fight' : null}>Fight</Link>
+        <Link className="tf-StageNavigationLink" to={hasFights ? '/fight' : null}>Results</Link>
       </nav>
     );
   }
