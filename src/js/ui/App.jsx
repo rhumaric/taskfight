@@ -48,6 +48,7 @@ class App extends Component {
           </div>
           <nav className="tf-Menu tf-Header__Menu">
             <button className="tf-Button tf-Button-blended tf-MenuItem" onClick={this.confirmNewFight}>New fight</button>
+            <a className="tf-MenuItem" href="mailto:romaric@taskfight.com?subject=Some feedback about TaskFight">Feedback</a>
           </nav>
         </header>
         <Stages {...this.props} className="tf-App__Main" >
