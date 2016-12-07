@@ -25,6 +25,7 @@ class StagesNavigation extends Component {
     const isFightScreen = window.location.pathname.indexOf('/fights') !== -1;
     const {hasFights, justGotFights} = this.state;
     const fightLinkClasses = [
+      'tf-StageNavigation__link',
       'tf-StageNavigationLink',
     ];
 
@@ -41,6 +42,7 @@ class StagesNavigation extends Component {
     }
 
     const resultsLinkClasses = [
+      'tf-StageNavigation__link',
       'tf-StageNavigationLink',
     ];
 
@@ -50,7 +52,7 @@ class StagesNavigation extends Component {
 
     return (
       <nav className={"tf-StageNavigation " + this.props.className}>
-        <Link className="tf-StageNavigationLink" to="/tasklist" activeClassName="tf-StageNavigationLink-active">List</Link>
+        <Link className="tf-StageNavigation__link tf-StageNavigationLink" to="/tasklist" activeClassName="tf-StageNavigationLink-active">List</Link>
         <Link className={fightLinkClasses.join(' ')} to={hasFights ? '/fights/next' : null}>Fight</Link>
         <Link className={resultsLinkClasses.join(' ')} to={hasFights ? '/results' : null} activeClassName="tf-StageNavigationLink-active">Results</Link>
       </nav>

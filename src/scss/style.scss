@@ -226,6 +226,10 @@ $unit: 44px;
   line-height: $unit;
   height: $unit;
   flex-basis: $unit;
+
+  &__link {
+    flex: 1;
+  }
 }
 
 .tf-StageNavigationLink {
