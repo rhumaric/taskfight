@@ -236,6 +236,10 @@ $unit: 44px;
   &-disabled {
     color: mix(white, $tfPurple, 10%);
   }
+
+  &-active {
+    color: $tfYellow;
+  }
 }
 
 .tf-AddTaskForm {
