@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    base(href='/')
+    base(href=('/' + process.env.BASE_URL))
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Taskfight
     include images/favicon/_favicon.html
@@ -10,5 +10,7 @@ html(lang='en')
     style
       | #taskfight-branding {display:none};
   body.halftone
-    div#app
+    #app
     script(src='bundle.js')
+    if production
+      include _piwik_script.pug

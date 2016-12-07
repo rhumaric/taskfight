@@ -7,7 +7,7 @@
     "dev:js": "webpack -d -w",
     "dev:css": "chokidar '**/*.scss' -c 'npm run build:css'",
     "dev": "run-p dev:html dev:js dev:css start",
-    "build:html": "pug src/index.pug --out www",
+    "build:html": "pug src/index.pug -O {production:true} --out www",
     "build:js": "NODE_ENV=production webpack -p",
     "build:css": "node-sass src/scss/style.scss | postcss -c .postcssrc",
     "build": "run-p build:html build:js build:css",
