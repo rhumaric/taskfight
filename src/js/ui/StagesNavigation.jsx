@@ -5,10 +5,25 @@ import _ from 'lodash';
 
 class StagesNavigation extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasFights: !!props.fightlist.length,
+      justGotFights: false
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      hasFights: !!props.fightlist.length,
+      justGotFights: !this.state.hasFights && !!props.fightlist.length,
+    });
+  }
+
   render() {
 
-    const hasFights = !!this.props.fightlist.length;
     const isFightScreen = window.location.pathname.indexOf('/fights') !== -1;
+    const {hasFights, justGotFights} = this.state;
     const fightLinkClasses = [
       'tf-StageNavigationLink',
     ];
@@ -19,6 +34,10 @@ class StagesNavigation extends Component {
 
     if (!hasFights) {
       fightLinkClasses.push('tf-StageNavigationLink-disabled');
+    }
+
+    if (justGotFights) {
+      fightLinkClasses.push('tf-StageNavigationLink-highlight');
     }
 
     const resultsLinkClasses = [
