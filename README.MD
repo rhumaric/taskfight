@@ -1,3 +1,5 @@
+> This repository is now [hosted on Gitlab](https://gitlab.com/romaricpascal/taskfight). Please head there if you wish to contribute. Thanks 🙂
+
 React base project
 ==================
 
